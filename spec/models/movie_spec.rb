@@ -9,7 +9,7 @@ describe Movie do
       Movie.find_with_similar_director(1)
     end
     it 'should call find Movie by director' do
-      Movie.should_receive(:where).with('George Lucas')
+      Movie.should_receive(:where).with(hash_including :director => 'George Lucas')
       Movie.find_with_similar_director(1)
     end
   end

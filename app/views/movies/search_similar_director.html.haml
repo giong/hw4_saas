@@ -1,0 +1,10 @@
+%h1 The similar movies
+
+%table
+  %thead
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= movie.director
+

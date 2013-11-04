@@ -4,6 +4,6 @@ class Movie < ActiveRecord::Base
   end
   def self.find_with_similar_director(id)
     movie = Movie.find(id)
-    Movie.where(movie.director)
+    Movie.where(:director => movie.director)
   end
 end

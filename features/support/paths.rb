@@ -21,6 +21,8 @@ module NavigationHelpers
       '/movies/1'
     when /^the Similar Movies page for "Star Wars"$/
       '/movies/search_similar_director/1'
+    when /^the details page for "Alien"$/
+      '/movies/3'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
