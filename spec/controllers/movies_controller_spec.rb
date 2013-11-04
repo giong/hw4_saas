@@ -40,9 +40,10 @@ describe MoviesController do
        get :search_similar_director, {:id => 3}
      end
      it 'should redirect to home page' do
-       fake_movie = double('Movie', :title => 'Alien', :director => "")
+       fake_movie = double('Movie', :title => 'Alien', :director => '')
        Movie.should_receive(:find).with('3').and_return(fake_movie)
-       response.should render_template('index')
+       get :search_similar_director, {:id => 3}
+       response.should redirect_to(:controller => 'movies', :action => 'index')
      end
    end
 end
