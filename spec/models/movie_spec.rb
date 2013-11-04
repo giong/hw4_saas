@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Movie do
   fixtures :movies
-  describe 'searching tmdb by director' do
+  describe 'searching movie by director' do
     it 'should call find Movie by id' do
       fake_result = double('Movie', :director => 'George Lucas')
       Movie.should_receive(:find).with(1).and_return(fake_result)
