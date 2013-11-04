@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   
   def search_similar_director
+    @movies = Movie.find_with_similar_director(params[:id])
   end
 
   def show
