@@ -35,13 +35,13 @@ describe MoviesController do
   #sad path
   describe 'search movies by similar director with empty director' do
      it 'should call the model method that find the movie by id' do
-       fake_movie = double('Movie', :title => 'Alien', :director => "")
+       fake_movie = double('Movie', :title => 'Alien', :director => '')
        Movie.should_receive(:find).with('3').and_return(fake_movie)
        get :search_similar_director, {:id => 3}
      end
      it 'should redirect to home page' do
        fake_movie = double('Movie', :title => 'Alien', :director => '')
-       Movie.should_receive(:find).with('3').and_return(fake_movie)
+       Movie.stub(:find).and_return(fake_movie)
        get :search_similar_director, {:id => 3}
        response.should redirect_to(:controller => 'movies', :action => 'index')
      end
