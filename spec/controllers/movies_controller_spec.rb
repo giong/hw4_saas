@@ -46,4 +46,29 @@ describe MoviesController do
        response.should redirect_to(:controller => 'movies', :action => 'index')
      end
    end
+   #show
+   describe 'show movie details' do
+     before :each do
+       @fake_result = double('movie')
+     end
+     it 'should call the model method to find the movie by id' do
+       Movie.should_receive(:find).with('1').and_return(@fake_result)
+       get :show, {:id => 1}
+     end
+     it 'should make the find result availabe on view' do
+       Movie.stub(:find).and_return(@fake_result)
+       get :show, {:id => 1}
+       assigns(:movie).should == @fake_result
+     end
+   end
+   #create
+   describe 'create a new movie' do
+     before :each do
+       @fake_result = double('movie', :title => 'Alien')
+     end
+     it 'should call the model method to create new movie' do
+       Movie.should_receive('create!').and_return(@fake_result)
+       post :create
+     end
+   end
 end
