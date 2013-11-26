@@ -5,3 +5,5 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rottenpotatoes::Application.load_tasks
+
+# Add comment for pull request demo
